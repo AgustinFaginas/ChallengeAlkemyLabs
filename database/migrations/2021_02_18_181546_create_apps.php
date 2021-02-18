@@ -21,6 +21,8 @@ class CreateApps extends Migration
             $table->integer('price');
             $table->string('img');
             $table->timestamps();
+            $table->unsignedBigInteger('developer_id'); 
+            $table->foreign('developer_id')->references('id')->on('users');
         });
     }
 
