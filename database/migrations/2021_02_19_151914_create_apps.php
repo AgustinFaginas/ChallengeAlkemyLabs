@@ -17,12 +17,14 @@ class CreateApps extends Migration
             $table->id();
             $table->string('name');
             $table->string('description');
-            $table->string('categoria');
             $table->integer('price');
             $table->string('img');
             $table->timestamps();
-            $table->unsignedBigInteger('developer_id'); 
+            $table->unsignedBigInteger('developer_id');
             $table->foreign('developer_id')->references('id')->on('users');
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('category');
+
         });
     }
 

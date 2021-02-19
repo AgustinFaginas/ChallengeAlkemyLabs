@@ -19,11 +19,12 @@ class HomeController extends Controller
          $type_user = session('typeOfUser');
 
          if ($type_user=='Developer') {
-             $valor_almacenado = session('idUsuario');
-         $apps =App::where('developerEmail', $valor_almacenado)->paginate(10);
-        return view('home', compact('apps','valor_almacenado','type_user'));
+             $idUser = session('idUsuario');
+         $apps =App::where('developer_id', $idUser)->paginate(10);
+        return view('apps_developer', compact('apps','valor_almacenado','type_user'));
          }else{
-            return "hola";
+
+            return view('app_user_client');
          }
         
         
