@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\App;
 use App\Category;
 use App\User;
 use Illuminate\Http\Request;
@@ -14,7 +15,7 @@ class WelcomeController extends Controller
 
         $category =Category::get(); 
 
-             return view('index', compact('category'));
+        return view('index', compact('category'));
     }
      public function login()
     {
@@ -45,5 +46,15 @@ class WelcomeController extends Controller
             return "user no existe";
         }
     	 
+    }
+
+    public function show($id)
+    {
+         
+        $category = Category::FindOrFail($id);
+
+        $apps_category= App::where('category_id',$category->id)->get();
+
+        return view('category_show',compact('category' , 'apps_category'));
     }
 }

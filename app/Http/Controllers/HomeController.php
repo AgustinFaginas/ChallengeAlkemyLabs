@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\App;
+use App\PurchasedAppsClient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -19,12 +20,22 @@ class HomeController extends Controller
          $type_user = session('typeOfUser');
 
          if ($type_user=='Developer') {
-             $idUser = session('idUsuario');
+        
+         $idUser = session('idUsuario');
+         
          $apps =App::where('developer_id', $idUser)->paginate(10);
+       
         return view('apps_developer', compact('apps','valor_almacenado','type_user'));
+         
          }else{
+           
+            $idUser = session('idUsuario');
 
-            return view('app_user_client');
+            $apps_user=PurchasedAppsClient::
+            join('apps', 'purchased_apps_client.app_id', '=', 'apps.id')->where('purchased_apps_client.client_id', $idUser)->get();
+           
+
+            return view('app_user_client',compact('apps_user'));
          }
         
         
@@ -36,6 +47,6 @@ class HomeController extends Controller
         
         $app = App::FindOrFail($id);
 
-        return view('show',compact('app'));
+        return view('app_show',compact('app'));
     }
 }
