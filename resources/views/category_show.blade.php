@@ -1,4 +1,4 @@
-
+<a href="{{route('endSession')}}">CERRAR SESION</a>
 
 
 <h1> Aplicacion {{$category->name}}</h1>

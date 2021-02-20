@@ -13,13 +13,19 @@ class WelcomeController extends Controller
      public function index()
     {
 
+          if (session('idUsuario') != null) {
+            return redirect()->route('apps.index');
+         }
+           
         $category =Category::get(); 
 
         return view('index', compact('category'));
     }
      public function login()
     {
-         
+         if (session('idUsuario') != null) {
+            return redirect()->route('apps.index');
+            }
              return view('login');
     }
 
@@ -27,20 +33,30 @@ class WelcomeController extends Controller
     {
 
 
+        if (session('idUsuario') != null) {
+            return redirect()->route('apps.index');
+        }
+        
         $user =User::where('email', $request->get('email'))->first();
 
         if ($user != null ) {
             if ( $user->password != $request->get('password')) {
                 return "password incorrecta";
             }
+
         session(['idUsuario' => $user->id]);
+      
         if($request->get('type') == $user->typeUser){
         session(['typeOfUser' => $request->get('type')]);
+        
         }
+       
         else{
+            
             return "Su tipo de usuario es incorrecto";
 
         }
+        
         return redirect('/me/home');
         }else{
             return "user no existe";

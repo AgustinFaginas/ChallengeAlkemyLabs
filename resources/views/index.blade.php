@@ -1,4 +1,5 @@
 <h1> Categorias</h1>
+<a href="{{route('endSession')}}">CERRAR SESION</a>
 <a href="login">LOGIN</a>
 <ul>
 		

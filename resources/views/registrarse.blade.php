@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<a href="{{route('endSession')}}">CERRAR SESION</a>
 <html lang="en">
 
 <head>
@@ -32,17 +33,21 @@
              
 
 
-              <form class="form-signin" action="registrarUsuario">
+              <form class="form-signin" action="{{route('registrarse.save')}}" method="post">
+                @csrf
                 <div class="form-label-group">
-                  <input type="text" id="nombreRegistro" class="form-control mb-4 mt-4" placeholder="Nombre">
-                  <input type="email" id="emailRegistro" class="form-control mb-4 mt-4"
+
+                  <input type="text" name="name" class="form-control mb-4 mt-4" placeholder="Nombre">
+
+
+                  <input type="email" name="email" class="form-control mb-4 mt-4"
                     placeholder="Correo Electronico">
                   
                 </div>
 
                 <div class="form-label-group">
-                  <input type="password" id="contraseñaRegistro" class="form-control" placeholder="Contraseña">
-
+                  <input type="password" name="password" class="form-control" placeholder="Contraseña">
+ 
                 </div>
              
                <strong>Seleccione tipo de usuario :</strong>

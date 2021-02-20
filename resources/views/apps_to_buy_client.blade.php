@@ -1,7 +1,6 @@
 APLICACIONES USUARIO
 
 <a href="{{route('endSession')}}">CERRAR SESION</a>
-<a href="{{route('apps.to_buy')}}">Apps para comprar</a>
 <ul>
 		
 		@forelse($apps_user ?? '' as $proyectoItem)

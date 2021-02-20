@@ -2,6 +2,8 @@
 
 
 <h1> Proyectos </h1>
+<a href="{{route('endSession')}}">CERRAR SESION</a>
+<a href="{{route('apps.to_buy')}}">Apps para comprar</a>
 
 <ul>
 		

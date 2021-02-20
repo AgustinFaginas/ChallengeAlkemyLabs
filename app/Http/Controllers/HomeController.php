@@ -17,6 +17,10 @@ class HomeController extends Controller
     public function index()
     {
 
+
+        if (session('idUsuario') == null) {
+            return redirect()->route('welcome.login');
+         }
          $type_user = session('typeOfUser');
 
          if ($type_user=='Developer') {
@@ -25,7 +29,7 @@ class HomeController extends Controller
          
          $apps =App::where('developer_id', $idUser)->paginate(10);
        
-        return view('apps_developer', compact('apps','valor_almacenado','type_user'));
+        return view('apps_developer', compact('apps'));
          
          }else{
            
@@ -41,6 +45,29 @@ class HomeController extends Controller
         
     }
 
+    public function to_buy()
+    {
+
+        $type_user = session('typeOfUser');
+         $idUser = session('idUsuario');
+
+         if ($type_user=='Developer') {     
+         $apps =App::where('developer_id', '!=', $idUser)->paginate(10);
+       
+        return view('apps_to_buy_developer', compact('apps'));
+    }else{
+
+         $apps_user=PurchasedAppsClient::
+            leftjoin('apps', 'purchased_apps_client.app_id', '=', 'apps.id')->get();
+           
+
+            return view('apps_to_buy_client',compact('apps_user'));
+         }
+
+    }
+        
+    
+
   
     public function show($id)
     {
@@ -48,5 +75,14 @@ class HomeController extends Controller
         $app = App::FindOrFail($id);
 
         return view('app_show',compact('app'));
+    }
+
+    public function endSession()
+    {
+
+        session(['idUsuario' => null]);
+        session(['typeOfUser' => null]);
+        
+        return redirect()->route('welcome.login');
     }
 }
