@@ -1,4 +1,7 @@
+@extends('layout') 
 
+
+@section('content')
 
 
 <h1> Proyectos </h1>
@@ -7,9 +10,9 @@
 
 <ul>
 		
-		@forelse($apps ?? '' as $proyectoItem)
+		@forelse($apps ?? '' as $appsDeveloper)
 
-			<li> <a href="{{route('apps.show',$proyectoItem)}}">{{ $proyectoItem->name }}</a></li>
+			<li> <a href="{{route('apps.show',$appsDeveloper)}}">{{ $appsDeveloper->name }}</a></li>
 		
 		@empty
 		 <li> No hay proyectos para mostrar </li>
@@ -18,3 +21,4 @@
 		{{$apps->links()}}
 
 	</ul>
+	@endsection

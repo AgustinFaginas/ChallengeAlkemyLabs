@@ -1,0 +1,162 @@
+h5 {
+    font-size: 0.95rem;
+  }
+  
+  .bg-header {
+    background-color: rgb(68, 66, 66);
+  }
+  
+  .logo {
+    font-size: 3em;
+    font-family: "Rowdies", cursive;
+    color: #f8f9fa;
+  }
+  .logo:hover {
+    color: #f8f9fa;
+  }
+  .input-busqueda {
+    height: 2.5em;
+  }
+  
+  .boton {
+    position: absolute;
+    right: 1.4em;
+    width: 15%;
+    height: 2.5em;
+    background-color: #db1f32;
+    border: gainsboro;
+  }
+  .boton:hover {
+    background-color: rgb(156, 8, 8);
+  }
+  .boton:focus {
+    background-color: rgb(156, 8, 8);
+  }
+  .fa-search {
+    color: rgb(235, 217, 217);
+  }
+
+  .icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+  }
+
+  .micuenta{
+    display: none;
+  }
+  .miCuentaResponsive{
+    display:flex;
+  }
+
+
+  @media screen and (max-width: 48em){
+ 
+    .logo{
+      font-size: 2em;
+      margin: auto;
+    }
+    .boton{
+     right:0.5em;
+   }
+    .icons a{
+     display: none;
+   
+    }
+    .expand-menu{
+      height: 53vh;
+    }
+    .carrito_responsive{
+      display: flex;
+    }
+   .micuenta{
+     display: none;
+   }
+   .miCuentaResponsive{
+     display:flex;
+   }
+   
+   .carrito_responsive{
+   display: flex;
+   }
+   .title{
+    text-align: center;
+     font-size: 1.5em;
+   }
+
+  }
+
+
+
+  @media screen  and (max-width:62em){
+
+    .logo{
+      font-size: 2em;
+      margin: auto;
+    }
+    .boton{
+     right:0.5em;
+   }
+    .icons a{
+     display: none;
+   
+    }
+    .expand-menu{
+      height: 53vh;
+    }
+    
+    .title{
+      display: flex;
+      justify-content: center;
+      font-size: 2.5em;
+    }
+    .micuenta{
+      display: none;
+    }
+  
+    .miCuentaResponsive{
+    display: flex;
+  }
+  
+  
+  .carrito_responsive{
+    display: flex;
+  }
+}
+
+@media screen and (max-width:75em){
+ 
+    .logo{
+      font-size: 2em;
+   
+     }
+     .icons i{
+       color: white;
+       font-size: 2em;
+     }
+   .miCuentaResponsive{
+       display: none;
+   }
+   .micuenta{
+     display: flex;
+   }
+}
+
+@media screen and (max-width:120em){
+ 
+    .logo{
+      font-size: 2em;
+   
+     }
+     .icons i{
+       color: white;
+       font-size: 2em;
+     }
+   .miCuentaResponsive{
+       display: none;
+   }
+   .micuenta{
+     display: flex;
+   }
+}

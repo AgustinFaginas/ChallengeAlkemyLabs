@@ -57,8 +57,7 @@ class HomeController extends Controller
         return view('apps_to_buy_developer', compact('apps'));
     }else{
 
-         $apps_user=PurchasedAppsClient::
-            leftjoin('apps', 'purchased_apps_client.app_id', '=', 'apps.id')->get();
+         $apps_user=PurchasedAppsClient::where('apps', 'purchased_apps_client.app_id', '=', 'apps.id')->get();
            
 
             return view('apps_to_buy_client',compact('apps_user'));
